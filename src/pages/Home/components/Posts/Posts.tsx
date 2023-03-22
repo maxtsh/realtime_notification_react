@@ -1,8 +1,22 @@
+import Post from "./components/Post";
+import { Container } from "./Posts.styles";
+
+const data = [
+  {
+    id: 1,
+    name: "Snake",
+    src: "/posts/post_1.jpg",
+    avatar: "avatars/avatar_1.jpg",
+  },
+];
+
 const Posts: React.FC = () => {
   return (
-    <div>
-      <h1>Posts</h1>
-    </div>
+    <Container>
+      {data.map((item) => (
+        <Post key={item.id} data={item} />
+      ))}
+    </Container>
   );
 };
 

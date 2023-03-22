@@ -10,9 +10,11 @@ export const Container = styled.div`
     display: flex;
     padding: 1rem;
     background: var(--main-bg);
+    overflow-y: auto;
 
     &__content {
       flex: 50%;
+      overflow-y: auto;
     }
   }
 `;

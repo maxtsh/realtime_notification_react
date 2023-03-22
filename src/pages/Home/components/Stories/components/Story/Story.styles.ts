@@ -3,8 +3,8 @@ import type { IContainerProps } from "./Story.types";
 
 export const Container = styled.div<IContainerProps>`
   position: relative;
-  width: 150px;
-  height: 220px;
+  width: 140px;
+  height: 200px;
   background-image: ${(p) => `url(${p.src})`};
   background-size: cover;
   border-radius: var(--pm-br);
@@ -23,7 +23,7 @@ export const Container = styled.div<IContainerProps>`
       cursor: pointer;
       width: 50px;
       height: 50px;
-      outline: 1px solid #af2f01;
+      outline: 1px solid var(--orange-1);
       border: 2px solid var(--white);
       border-radius: var(--pm-br);
       background-image: ${(p) => `url(${p.avatar})`};
@@ -36,7 +36,7 @@ export const Container = styled.div<IContainerProps>`
         width: 18px;
         height: 18px;
         border-radius: 50%;
-        background-color: #f4591f;
+        background-color: var(--orange-2);
 
         &__icon {
           font-size: 1.25rem;

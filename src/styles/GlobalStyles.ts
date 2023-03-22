@@ -22,12 +22,15 @@ const GlobalStyles = createGlobalStyle`
   --gray-1: #F5F7F9;
   --border-1: #d0d7de;
   --main-bg: #F7F7F7;
+  --liked: #FF4400;
+  --orange-1: #af2f01;
+  --orange-2: #f4591f;
 
   /* Border */
   --pm-br: 8px;
 
   /* Shadows */
-  --pm-bx-sh: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  --pm-bx-sh: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 }
 
 *{

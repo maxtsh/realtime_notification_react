@@ -9,7 +9,7 @@ const Home: React.FC = () => {
       <Card>
         <Stories />
       </Card>
-      <Card className="mt">
+      <Card className="posts">
         <Posts />
       </Card>
     </Container>

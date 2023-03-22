@@ -1,5 +1,5 @@
-import { ReactNode, HTMLProps } from "react";
+import { ReactNode, HTMLAttributes } from "react";
 
-export interface IProps extends HTMLProps<HTMLDivElement> {
+export interface IProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 }

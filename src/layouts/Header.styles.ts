@@ -6,4 +6,5 @@ export const Container = styled.header`
   justify-content: space-between;
   min-height: 80px;
   padding: 1rem;
+  box-shadow: var(--pm-bx-sh);
 `;
