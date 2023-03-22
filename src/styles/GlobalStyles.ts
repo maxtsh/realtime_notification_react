@@ -15,12 +15,25 @@ const GlobalStyles = createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  /* Colors */
+  --white: #ffffff;
+  --blue-1: #157AFE;
+  --gray-1: #F5F7F9;
+  --border-1: #d0d7de;
+
+  /* Border */
+  --pm-br: 8px;
 }
 
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html, body{
+  font-size: 16px;
 }
 
 a {
