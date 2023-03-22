@@ -1,15 +1,30 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "@/pages/Login/Lazy";
+import Notfound from "@/pages/Notfound";
+import AllRoutes from "@/routes";
+import Auth from "@/auth";
+import Layout from "@/layouts/Layout";
+import GlobalStyles from "@/styles/GlobalStyles";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
-      <h1>HOME</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {/* Public Routes */}
+        <Route path="login" element={<Login />} />
+        {/* Protected Routes */}
+        <Route path="/" element={<Layout />}>
+          {AllRoutes.map((Page) => (
+            <Route key={Page.name} element={<Auth />}>
+              <Route path={Page.path} element={<Page.component />} />
+            </Route>
+          ))}
+          {/* Catch All NotFound */}
+        </Route>
+        <Route path="*" element={<Notfound />} />
+      </Routes>
+      <GlobalStyles />
+    </BrowserRouter>
   );
 }
 
