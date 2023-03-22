@@ -1,20 +1,18 @@
-import { clearFromLS, readFromLS } from "@/utils/Storage/LocalStorage";
-import { useNavigate } from "react-router-dom";
+import Card from "@/components/Card";
+import Stories from "./components/Stories";
+import Posts from "./components/Posts";
+import { Container } from "./Home.styles";
 
 const Home: React.FC = () => {
-  const navigate = useNavigate();
-  const username = readFromLS("notification_username");
-
-  const logOut = () => {
-    clearFromLS("notification_username");
-    navigate("/login", { replace: true });
-  };
-
   return (
-    <div>
-      <h1>Welcome {username}</h1>
-      <button onClick={logOut}>Logout</button>
-    </div>
+    <Container>
+      <Card>
+        <Stories />
+      </Card>
+      <Card className="posts">
+        <Posts />
+      </Card>
+    </Container>
   );
 };
 

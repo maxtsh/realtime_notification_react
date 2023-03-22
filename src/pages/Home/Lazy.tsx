@@ -8,10 +8,9 @@ export default LazyLoading(() => import("./index"), {
         justifyContent: "center",
         flex: 1,
         alignItems: "center",
-        minHeight: "100vh",
       }}
     >
-      <h1>Loading the page...</h1>
+      <h1>Loading home page...</h1>
     </div>
   ),
 });
