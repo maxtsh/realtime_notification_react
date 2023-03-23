@@ -10,7 +10,7 @@ export default LazyLoading(() => import("./index"), {
         alignItems: "center",
       }}
     >
-      <h1>Loading...</h1>
+      <h1>Loading home page...</h1>
     </div>
   ),
 });

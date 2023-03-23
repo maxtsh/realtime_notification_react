@@ -1,8 +1,10 @@
+import { Container } from "./Sidebar.styles";
+
 const Sidebar: React.FC = () => {
   return (
-    <div>
-      <p>Sidebar</p>
-    </div>
+    <Container>
+      <h1>Sidebar</h1>
+    </Container>
   );
 };
 
