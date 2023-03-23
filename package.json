@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "set NODE_ENV=development&& vite",
-    "build": "set NODE_ENV=production&& npm run clean && tsc && vite build",
+    "build": "set NODE_ENV=production&& tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
     "test:ci": "vitest run --coverage --silent --ci",
