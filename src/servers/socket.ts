@@ -1,7 +1,7 @@
 import { io } from "socket.io-client";
 const { MODE } = import.meta.env;
 
-const URL = MODE === "production" ? window.location : "http://localhost:3001";
+const URL = MODE === "production" ? "" : "http://localhost:3001";
 
 if (MODE === "development") console.log("Instance Called!");
 
