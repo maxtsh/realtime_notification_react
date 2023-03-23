@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BsPlus, BsHeart, BsHeartFill } from "react-icons/bs";
+import { BsHeart, BsHeartFill } from "react-icons/bs";
 import { FaRegCommentDots, FaRegShareSquare } from "react-icons/fa";
 import { Container } from "./Post.styles";
 import type { IProps } from "./Post.types";
@@ -7,21 +7,19 @@ import useSocket from "@/hooks/useSocket";
 import { readFromLS } from "@/utils/Storage/LocalStorage";
 
 const Post: React.FC<IProps> = ({ data }) => {
-  const socket = useSocket();
+  const { socket } = useSocket();
   const username = readFromLS("notification_username");
   const [liked, setLiked] = useState<boolean>(false);
 
   const handleLike = () => {
-    setLiked((prev) => {
-      if (!prev) {
-        socket?.emit("like", {
-          liker: username,
-          owner: data.name,
-          postId: data.id,
-        });
-      }
-      return !prev;
-    });
+    setLiked((prev) => !prev);
+    if (!liked) {
+      socket?.emit("like", {
+        liker: username,
+        owner: data.name,
+        postId: data.id,
+      });
+    }
   };
 
   return (

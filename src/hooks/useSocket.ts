@@ -1,15 +1,25 @@
-import { useState, useEffect } from "react";
-import { io, Socket } from "socket.io-client";
+import { useState } from "react";
+import { socketInstance } from "@/servers/socket";
+import type { Socket } from "socket.io-client";
 
 const useSocket = () => {
-  const [socket, setSocket] = useState<Socket | null>(null);
+  const [socket] = useState<Socket>(socketInstance);
+  // const [isConnected, setIsConnected] = useState(socket.connected);
 
-  useEffect(() => {
-    const socket = io("http://localhost:3001");
-    setSocket(socket);
-  }, []);
+  // useEffect(() => {
+  //   const onConnect = () => setIsConnected(true);
+  //   const onDisconnect = () => setIsConnected(false);
 
-  return socket;
+  //   socket.on("connect", onConnect);
+  //   socket.on("disconnect", onDisconnect);
+
+  //   return () => {
+  //     socket.off("connect", onConnect);
+  //     socket.off("disconnect", onDisconnect);
+  //   };
+  // }, [socket]);
+
+  return { socket };
 };
 
 export default useSocket;

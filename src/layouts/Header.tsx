@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { BsBell } from "react-icons/bs";
 import { clearFromLS, readFromLS } from "@/utils/Storage/LocalStorage";
-import { useNavigate } from "react-router-dom";
-import { Container } from "./Header.styles";
 import useSocket from "@/hooks/useSocket";
+import { Container } from "./Header.styles";
 
 const Header: React.FC = () => {
   const [notifs, setNotifs] = useState(0);
-  const socket = useSocket();
+  const { socket } = useSocket();
   const navigate = useNavigate();
   const username = readFromLS("notification_username");
 
@@ -17,15 +17,18 @@ const Header: React.FC = () => {
   };
 
   useEffect(() => {
-    socket?.emit("NewUser", username);
-  }, [socket, username]);
-
-  useEffect(() => {
-    socket?.on("notification", ({ message }) => {
+    const handleNotification = ({ message }: { message: string }) => {
       setNotifs((prev) => prev + 1);
       console.log(message);
-    });
-  }, [socket]);
+    };
+    socket?.on("notification", handleNotification);
+
+    // Event must be cleaned with its corresponding function
+    // If function is not passed then it may remove all the notification subs from other components too
+    return () => {
+      socket?.off("notification", handleNotification);
+    };
+  }, []);
 
   return (
     <Container>
