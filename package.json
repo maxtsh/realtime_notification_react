@@ -4,9 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev": "set NODE_ENV=development&& vite",
+    "build": "set NODE_ENV=production&& tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ci": "vitest run --coverage --silent --ci",
+    "test:ui": "vitest --ui",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "react": "^18.2.0",
